@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote - Electronic Voting System</title>
+    <style>
+        /* Additional CSS for improved design */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(255, 255, 255);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+
+        header img {
+            height: 150px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        nav a.active {
+            color: #ff6600;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #1472e6, #a8d8ff);
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .search-bar {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        .candidate-container {
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #a2c9e5, #6d78bf);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .candidate-container:hover {
+            transform: scale(1.02);
+        }
+
+        .candidate-details {
+            margin-bottom: 20px;
+        }
+
+        .candidate-details p {
+            margin: 5px 0;
+        }
+
+        .candidate-ratings {
+            margin-bottom: 10px;
+            color: gold;
+        }
+
+        .candidate-image {
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 10px;
+        }
+
+        .candidate-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .manifesto-bio {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: honeydew;
+        }
+
+        .manifesto-bio h3 {
+            margin-top: 0;
+            background-color: rgb(52, 179, 41);
+        }
+
+        .manifesto,
+        .biography {
+            margin-bottom: 20px;
+            background-color: honeydew;
+        }
+
+        .vote-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .vote-button:hover {
+            background-color: #0056b3;
+        }
+
+        .learn-more-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .learn-more-button:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #logo {
+            height: 150px; 
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .candidate-container {
+                padding: 10px;
+            }
+
+            .candidate-image {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/Users/chukwuemelieclarenceume/Downloads/E-VOTE MAIN LOGO.png" alt="Company Logo" id="logo">
+        <nav>
+            <a href="Homepage.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="registration.html">Voter Registration</a>
+            <a href="vote.html" class="active">Vote</a>
+            <a href="analytics.html">Analytics</a>
+        </nav>
+    </header>
+    <section class="hero-section">
+        <h1>Vote</h1>
+    </section>
+    <section>
+        <h2>Cast your Votes here !!!</h2>
+        <p> Your votes are secure and private </p>
+        <div class="search-bar">
+            <input type="text" id="searchInput" onkeyup="filterCandidates()" placeholder="Search for candidates..">
+        </div>
+
+        <!-- John Smith -->
+        <div class="candidate-container" data-candidate="John Smith">
+            <div class="candidate-details">
+                <p>Candidate: John Smith</p>
+                <p>Party: XYZ Party</p>
+                <p>Experience: 10 years</p>
+                <p>Position: President</p>
+                <div class="candidate-ratings">★★★★★</div>
+            </div>
+            <div class="candidate-image">
+                <img src="/Users/chukwuemelieclarenceume/Downloads/13218-a-young-businessman-in-a-suit-isolated-on-a-white-background-pv.jpg" alt="John Smith">
+            </div>
+            <div class="manifesto-bio">
+                <div class="manifesto">
+                    <h3>Manifesto</h3>
+                    <p>"I, John Smith, running for the position of President under the XYZ Party, pledge to prioritize economic growth and social welfare. My manifesto includes initiatives to create more job opportunities, improve healthcare accessibility, and invest in education. I aim to foster innovation and sustainable development, ensuring a better future for all citizens."</p>
+                </div>
+                <div class="biography">
+                    <h3>Biography</h3>
+                    <p>John Smith is a dedicated leader with ten years of experience in public service. Born and raised in our community, John understands the challenges faced by ordinary citizens. With a background in economics and a passion for community development, John has spearheaded numerous projects aimed at improving the quality of life for residents. His integrity, vision, and commitment to progress make him the ideal candidate to lead our nation forward.</p>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <button class="vote-button" onclick="voteForCandidate('John Smith')">Vote for John Smith</button>
+            <button class="learn-more-button" onclick="openModal('John Smith')">Learn More</button>
+        </div>
+             <!-- Jane Williams -->
+             <div class="candidate-container" data-candidate="Jane Williams">
+                <div class="candidate-details">
+                    <p>Candidate: Jane Williams</p>
+                    <p>Party: ABC Party </p>
+                    <p>Experience: 8 years</p>
+                    <p>Position: President</p>
+                    <div class="candidate-ratings">★★★★☆</div>
+                </div>
+                <div class="candidate-image">
+                    <img src="/Users/chukwuemelieclarenceume/Downloads/g_studio-iStock_000022409060_Large-e1405124843192.jpg" alt="Jane Williams">
+                </div>
+                <div class="manifesto-bio">
+                    <div class="manifesto">
+                        <h3>Manifesto</h3>
+                        <p>"As a candidate for President representing the ABC Party, I, Jane Williams, am committed to promoting equality, justice, and prosperity for all. My manifesto focuses on strengthening social services, protecting the environment, and empowering marginalized communities. I pledge to enact policies that prioritize sustainable development, foster inclusivity, and uphold human rights."</p>
+                    </div>
+                    <div class="biography">
+                        <h3>Biography</h3>
+                        <p>Jane Williams is a dynamic leader with eight years of experience advocating for social change. With a background in law and a passion for activism, Jane has dedicated her career to fighting for the rights of the underprivileged. Born into a working-class family, Jane understands the importance of empathy and resilience. Her tireless efforts to address social inequality and promote diversity have earned her widespread respect and admiration.</p>
+                    </div>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+                <button class="vote-button" onclick="voteForCandidate('Jane Williams')">Vote for Jane Williams</button>
+                <button class="learn-more-button" onclick="openModal('Jane Williams')">Learn More</button>
+            </div>
+         <!-- Mark Johnson -->
+         <div class="candidate-container" data-candidate="Mark Johnson">
+            <div class="candidate-details">
+                <p>Candidate: Mark Johnson</p>
+                <p>Party: PQR Party </p>
+                <p>Experience: 12 years</p>
+                <p>Position: President</p>
+                <div class="candidate-ratings">★★★★</div>
+            </div>
+            <div class="candidate-image">
+                <img src="/Users/chukwuemelieclarenceume/Downloads/business-man-1238356.jpg" alt="Mark Johnson">
+            </div>
+            <div class="manifesto-bio">
+                <div class="manifesto">
+                    <h3>Manifesto</h3>
+                    <p>"I, Mark Johnson, candidate for President representing the PQR Party, vow to lead with integrity, transparency, and accountability. My manifesto outlines plans to revitalize the economy, strengthen national security, and promote civic engagement. I pledge to prioritize fiscal responsibility, streamline government processes, and foster a culture of cooperation and unity."</p>
+                </div>
+                <div class="biography">
+                    <h3>Biography</h3>
+                    <p>Mark Johnson is a seasoned statesman with twelve years of experience in public service. Raised in a military family, Mark developed a deep appreciation for patriotism and public service from a young age. With a background in diplomacy and a track record of bipartisan cooperation, Mark has earned a reputation as a pragmatic and effective leader. His unwavering commitment to serving the nation and bridging political divides makes him a trusted choice for President.</p>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <button class="vote-button" onclick="voteForCandidate('Mark Johnson')">Vote for Mark Johnson</button>
+            <button class="learn-more-button" onclick="openModal('Mark Johnson')">Learn More</button>
+        </div>
+    </section>
+
+    <!-- Modal Structure -->
+    <div id="candidateModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalCandidateName"></h2>
+            <div id="modalCandidateDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 E-Vote. All rights reserved.</p>
+        <div>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    <script>
+        function voteForCandidate(candidateName) {
+            alert('You have voted for ' + candidateName);
+        }
+
+        function openModal(candidateName) {
+            var modal = document.getElementById("candidateModal");
+            var modalCandidateName = document.getElementById("modalCandidateName");
+            var modalCandidateDetails = document.getElementById("modalCandidateDetails");
+
+            modalCandidateName.innerHTML = candidateName;
+
+            var candidateDetails = document.querySelector(`[data-candidate="${candidateName}"] .candidate-details`).innerHTML;
+            var candidateManifesto = document.querySelector(`[data-candidate="${candidateName}"] .manifesto`).innerHTML;
+            var candidateBiography = document.querySelector(`[data-candidate="${candidateName}"] .biography`).innerHTML;
+
+            modalCandidateDetails.innerHTML = `<div>${candidateDetails}</div><div>${candidateManifesto}</div><div>${candidateBiography}</div>`;
+
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("candidateModal");
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("candidateModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function filterCandidates() {
+            var input, filter, candidateContainers, candidate, i;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            candidateContainers = document.getElementsByClassName('candidate-container');
+
+            for (i = 0; i < candidateContainers.length; i++) {
+                candidate = candidateContainers[i];
+                if (candidate.innerText.toUpperCase().indexOf(filter) > -1) {
+                    candidate.style.display = "";
+                } else {
+                    candidate.style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Electronic Voting System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Additional CSS for About Us page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(to bottom, #f0f0f0, #ffffff); /* Gradient Background */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-image: url('/Users/chukwuemelieclarenceume/Downloads/OIP.HcyjXrI7YhmoMuikTXqwIQHaFG.jpeg'); /* Background Image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background for header */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            animation: fadeInDown 1s ease; /* Fade-in animation for header */
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            animation: slideInRight 1s ease; /* Slide-in animation for navigation items */
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: left;
+            margin: 0 auto;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for section */
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box Shadow */
+            animation: fadeInUp 1s ease; /* Fade-in animation for section */
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+            animation: colorChange 2s infinite alternate; /* Color change animation for headings */
+        }
+
+        @keyframes colorChange {
+            from {
+                color: #333;
+            }
+            to {
+                color: #ff6600;
+            }
+        }
+
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease; /* Fade-in animation for paragraphs */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .team-member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+        }
+
+        .team-member:hover {
+            transform: scale(1.05); /* Enlarge on hover */
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .team-member-details {
+            flex: 1;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: rgba(51, 51, 51, 0.8); /* Semi-transparent background for footer */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            animation: slideInUp 1s ease; /* Slide-in animation for footer */
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .social-icons a {
+            color: #333;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+
+        .social-icons a:hover {
+            color: #ff6600; /* Change color on hover */
+        }
+
+        /* New styles for logo section */
+        .logo-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .logo-section img {
+            max-width: 300px;
+            height: auto;
+            transition: transform 0.3s ease; /* Smooth transition on hover */
+        }
+
+        .logo-section img:hover {
+            transform: scale(1.1); /* Enlarge on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Us</h1>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="registration.html">Voter Registration</a></li>
+                <li><a href="vote.html">Vote</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <!-- New Logo Section -->
+        <div class="logo-section">
+            <img src="/Users/chukwuemelieclarenceume/Downloads/E-VOTE MAIN LOGO.png" alt="Company Logo">
+        </div>
+
+        <h2>Company Overview</h2>
+        <p>Welcome to the Electronic Voting System, a leading provider of innovative electronic voting solutions. Our mission is to revolutionize the voting experience by providing secure, accessible, and efficient voting systems for elections worldwide.</p>
+
+        <h2>Mission Statement</h2>
+        <p>Our mission is to empower citizens by enabling them to participate in the democratic process through modern, user-friendly electronic voting platforms. We are committed to ensuring the integrity and transparency of elections while enhancing voter turnout and engagement.</p>
+
+        <h2>Our Team</h2>
+        <div class="team-member">
+            <img src="/Users/chukwuemelieclarenceume/Downloads/IMG_0883.jpg" alt="Team Member 1">
+            <div class="team-member-details">
+                <h3>Chukwuemelie Clarence Ume</h3>
+                <p>CEO</p>
+                <p>Chukwuemelie Ume is a visionary leader with a passion for technology and democracy. With over 20 years of experience in the voting industry, he has led our company to become a trusted name in electronic voting solutions.</p>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <img src="/Users/chukwuemelieclarenceume/Downloads/th-5.jpeg" alt="Team Member 2">
+            <div class="team-member-details">
+                <h3>Vienna Ross</h3>
+                <p>CTO</p>
+                <p>Vienna Ross is an experienced technologist with a background in cybersecurity and software development. She leads our team of engineers in designing and implementing cutting-edge voting systems.</p>
+            </div>
+        </div>
+
+        <div class="team-member">
+            <img src="/Users/chukwuemelieclarenceume/Downloads/674783.jpg" alt="Team Member 3">
+            <div class="team-member-details">
+                <h3>Michael Jacobs</h3>
+                <p>COO</p>
+                <p>Michael Jacobs oversees the operational aspects of our company, ensuring that our products and services meet the highest standards of quality and reliability. He is dedicated to customer satisfaction and organizational excellence.</p>
+            </div>
+        </div>
+
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p><strong>Email:</strong> info@electronicvoting.com</p>
+            <p><strong>Phone:</strong> +1 (123) 456-7890</p>
+            <p><strong>Address:</strong> 123 Main Street, City, Country</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="https://twitter.com/youraccount" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                <a href="https://www.linkedin.com/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/youraccount" target="_blank"><i class="fab fa-instagram-square"></i></a>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 Electronic Voting System</p>
+    </footer>
+</body>
+</html>

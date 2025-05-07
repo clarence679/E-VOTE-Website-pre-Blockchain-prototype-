@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Electronic Voting System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS for registration page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #74ABE2, #5563DE);
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        img.logo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #5563DE;
+            box-shadow: 0 0 5px rgba(85, 99, 222, 0.5);
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background-color: #5563DE;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4350CC;
+        }
+
+        .error {
+            color: #D8000C;
+            background-color: #FFD2D2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+        .success {
+            color: #4F8A10;
+            background-color: #DFF2BF;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="register-form">
+        <img src="/Users/chukwuemelieclarenceume/Downloads/E-VOTE MAIN LOGO.png" alt="Company Logo" class="logo">
+        <h2>Register</h2>
+        <div class="error" id="error-message"></div>
+        <div class="success" id="success-message"></div>
+        <input type="text" id="username" name="username" placeholder="Username" required>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

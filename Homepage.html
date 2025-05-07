@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Vote</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+        header img {
+            height: 150px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        nav a.active {
+            color: #ff6600;
+        }
+        .logout-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: #ff6600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .logout-button:hover {
+            background: #e05500;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #1472e6, #a8d8ff);
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        .hero-section button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #ffffff;
+            background: #897d12;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .hero-section button:hover {
+            background: #908312;
+        }
+        .main-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to bottom, #a8d8ff, #1472e6);
+        }
+        .main-section button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background: #8d774a;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .main-section button:hover {
+            background: #735f39;
+        }
+        .search-bar {
+            margin: 20px auto;
+            width: 50%;
+            display: flex;
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+        }
+        .search-bar button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: 1px solid #8d774a;
+            background: #8d774a;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .search-bar button:hover {
+            background: #735f39;
+        }
+        .live-news-carousel, .testimonials, .faq, .contact-form, .newsletter, .blog, footer {
+            padding: 40px 20px;
+            background: #fff;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .live-news-carousel img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .live-news-carousel .news-item {
+            display: none;
+            text-align: center;
+        }
+        .live-news-carousel .news-item.active {
+            display: block;
+        }
+        .live-news-carousel .news-item h3 {
+            margin: 10px 0;
+            font-size: 24px;
+        }
+        .live-news-carousel .news-item p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .live-news-carousel .news-item button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: #ff6600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .live-news-carousel .news-item button:hover {
+            background: #e05500;
+        }
+        .live-news-carousel .carousel-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .live-news-carousel .carousel-buttons button {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 0 5px;
+        }
+        .live-news-carousel .carousel-buttons button:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+        .testimonials p, .faq p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .contact-form form, .newsletter form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-form input, .contact-form textarea, .newsletter input {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button, .newsletter button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background: #ff6600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover, .newsletter button:hover {
+            background: #e05500;
+        }
+        #map {
+            height: 400px;
+            width: 100%;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/Users/chukwuemelieclarenceume/Downloads/E-VOTE MAIN LOGO.png" alt="E-Vote Logo">
+        <nav>
+            <a href="Homepage.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="registration.html">Voter Registration</a>
+            <a href="vote.html">Vote</a>
+            <a href="analytics.html">Analytics</a>
+            <button class="logout-button" onclick="logout()">Log Out</button>
+        </nav>
+    </header>
+    <div class="hero-section">
+        <h1>Welcome to E-Vote</h1>
+        <button>Get Started</button>
+    </div>
+    <section class="main-section">
+        <h1>Register to Vote Today!!!</h1>
+        <button>Sign Up</button>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+        </div>
+    </section>
+    <section class="live-news-carousel">
+        <div class="news-item active">
+            <img src="/Users/chukwuemelieclarenceume/Downloads/5555555.webp" alt="News 1">
+            <h3>E-Vote (New Electronic Voting System)</h3>
+            <p>This is a brief description of the first news item...</p>
+            <button onclick="learnMore(1)">Learn More</button>
+        </div>
+        <div class="news-item">
+            <img src="/Users/chukwuemelieclarenceume/Desktop/COURSEWORK_WAPD/im-blockchain-projects-cloud-02-2021.jpg" alt="News 2">
+            <h3>Blockchain Preview and Security Concerns</h3>
+            <p>This is a brief description of the second news item...</p>
+            <button onclick="learnMore(2)">Learn More</button>
+        </div>
+        <div class="news-item">
+            <img src="/Users/chukwuemelieclarenceume/Downloads/code-5113374_1280-896x504.webp" alt="News 3">
+            <h3>Overview of How the System Works</h3>
+            <p>This is a brief description of the third news item...</p>
+            <button onclick="learnMore(3)">Learn More</button>
+        </div>
+        <div class="carousel-buttons">
+            <button onclick="prevNews()">&#10094;</button>
+            <button onclick="nextNews()">&#10095;</button>
+        </div>
+    </section>
+    <section class="video">
+        <iframe width="1440" height="720" src="https://www.youtube.com/embed/6stlCkUDG_s?list=PL4Gr5tOAPttLOY9IrWVjJlv4CtkYI5cI_" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </section>
+    <section class="testimonials">
+        <h2>Testimonials</h2>
+        <p>"E-Vote made it so easy to register and vote!" - Jane Doe</p>
+        <p>"A seamless experience from start to finish." - John Smith</p>
+    </section>
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <p>Q: How do I register?</p>
+        <p>A: Click the 'Sign Up' button and follow the instructions.</p>
+        <p>Q: Is my information secure?</p>
+        <p>A: Yes, we use the latest security measures to protect your data.</p>
+    </section>
+    <section class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form>
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+    <section class="contact-form">
+        <h2>Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <section id="map"></section>
+    <section class="blog">
+        <h2>Latest Blog Posts</h2>
+        <article class="blog-post">
+            <h3>Blog Post Title 1</h3>
+            <p>Excerpt from the blog post...</p>
+            <a href="#">Read more</a>
+        </article>
+        <article class="blog-post">
+            <h3>Blog Post Title 2</h3>
+            <p>Excerpt from the blog post...</p>
+            <a href="#">Read more</a>
+        </article>
+        <!-- Add more blog posts as needed -->
+    </section>
+    <footer>
+        <p>&copy; 2024 E-Vote. All rights reserved.</p>
+        <p>
+            <a href="#">Accessibility</a> |
+            <a href="AboutUs.html" id="about-us-link">About Us</a> 
+        </p>
+        <p>
+            <a href="#">Facebook</a> |
+            <a href="#">Twitter</a> |
+            <a href="#">Instagram</a>
+        </p>
+    </footer>
+    <script>
+        let currentNewsIndex = 0;
+        const newsItems = document.querySelectorAll('.live-news-carousel .news-item');
+
+        function showNews(index) {
+            newsItems.forEach((item, i) => {
+                item.classList.remove('active');
+                if (i === index) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        function nextNews() {
+            currentNewsIndex = (currentNewsIndex + 1) % newsItems.length;
+            showNews(currentNewsIndex);
+        }
+
+        function prevNews() {
+            currentNewsIndex = (currentNewsIndex - 1 + newsItems.length) % newsItems.length;
+            showNews(currentNewsIndex);
+        }
+
+        function learnMore(newsId) {
+            alert('You clicked Learn More on news item ' + newsId);
+        }
+
+        function logout() {
+            window.location.href = 'login.html';
+        }
+
+        // Initialize and add the map
+        function initMap() {
+            var location = { lat: -25.363, lng: 131.044 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSjQW_-SKLT9IEG6PE8H8HGvehvU35jx0&callback=initMap"></script>
+</body>
+</html>

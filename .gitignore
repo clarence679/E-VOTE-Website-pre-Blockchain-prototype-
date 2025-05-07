@@ -1,0 +1,6 @@
+# MacOS trash
+.DS_Store
+__MACOSX/
+
+# VS Code junk
+.vscode/

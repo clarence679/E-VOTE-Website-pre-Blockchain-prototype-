@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Registration - Electronic Voting System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(255, 255, 255);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+        header img {
+            height: 150px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+        }
+        nav a:hover {
+            color: #000;
+        }
+        nav a.active {
+            color: #ff6600;
+        }
+        .hero-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #1472e6, #a8d8ff);
+        }
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .registration-form {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+            background: linear-gradient(to top, rgb(159, 224, 244), rgb(214, 237, 253));
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .registration-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .registration-form input[type="text"],
+        .registration-form input[type="email"],
+        .registration-form input[type="date"],
+        .registration-form input[type="tel"],
+        .registration-form textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        .registration-form input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .registration-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0; /* Center the button below the checkbox */
+        }
+        .registration-form button:hover {
+            background-color: #0056b3;
+        }
+        .terms {
+            margin-top: 20px;
+            text-align: left; /* Align terms and conditions to the left */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+        }
+        .terms h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: blue;
+        }
+        .terms p {
+            margin-bottom: 10px;
+        }
+        .agree-checkbox {
+            display: block;
+            text-align: left; /* Align the checkbox to the left */
+        }
+        .agree-checkbox input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .agree-checkbox label {
+            font-size: 1.1em;
+        }
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        #logo {
+            height: 150px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/Users/chukwuemelieclarenceume/Downloads/E-VOTE MAIN LOGO.png" alt="Company Logo" id="logo"> 
+        <nav>
+            <a href="Homepage.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="registration.html" class="active">Voter Registration</a>
+            <a href="vote.html">Vote</a>
+            <a href="analytics.html">Analytics</a>
+        </nav>
+    </header>
+    <section class="hero-section">
+        <h1>Voter Registration</h1>
+    </section>
+    <section>
+        <div class="registration-form">
+            <form id="registrationForm">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Format: 123-456-7890" required>
+
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+
+                <label for="idNumber">ID Number:</label>
+                <input type="text" id="idNumber" name="idNumber" required>
+            </form>
+        </div>
+
+        <div class="terms">
+            <h3>Terms and Conditions</h3>
+            <p><strong>Eligibility:</strong><br>
+                - To register as a voter on this platform, you must be a citizen of the country where the elections are being held.<br>
+                - You must be of legal voting age according to the laws of your country.
+            </p>
+            <p><strong>Registration:</strong><br>
+                - By registering on this platform, you agree to provide accurate and truthful information about yourself.<br>
+                - You must provide a valid email address, phone number, and identification details during registration.<br>
+                - Any fraudulent or misleading information provided during registration will result in the termination of your account.
+            </p>
+            <p><strong>Security:</strong><br>
+                - You are responsible for maintaining the security and confidentiality of your login credentials.<br>
+                - Any unauthorized use of your account should be reported immediately to the platform administrators.
+            </p>
+            <p><strong>Voting Process:</strong><br>
+                - The voting process on this platform is confidential and tamper-proof.<br>
+                - Each voter is allowed to cast only one vote per election.<br>
+                - Any attempt to manipulate or disrupt the voting process will result in legal action.
+            </p>
+            <p><strong>Data Privacy:</strong><br>
+                - We are committed to protecting your personal information and adhere to strict data privacy laws.<br>
+                - Your personal data will only be used for the purpose of facilitating the voting process and will not be shared with third parties without your consent.
+            </p>
+            <p><strong>Termination:</strong><br>
+                - We reserve the right to terminate or suspend your account at any time without prior notice if you violate these terms and conditions.<br>
+                - In case of termination, you will lose access to the platform and any ongoing voting processes.
+            </p>
+            <p>By registering on this platform and using our services, you agree to abide by these terms and conditions. Failure to comply with these terms may result in legal action.</p>
+        </div>
+
+        <div class="agree-checkbox">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">I agree to the terms and conditions</label>
+        </div>
+
+        <button onclick="saveRegistrationInfo()" type="button">Register</button>
+    </section>
+    <footer>
+        <p>&copy; 2024 E-Vote. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function saveRegistrationInfo() {
+            var fullname = document.getElementById('fullname').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var address = document.getElementById('address').value;
+            var dob = document.getElementById('dob').value;
+
+            localStorage.setItem('fullname', fullname);
+            localStorage.setItem('email', email);
+            localStorage.setItem('phone', phone);
+            localStorage.setItem('address', address);
+            localStorage.setItem('dob', dob);
+
+            alert('Registration information saved successfully!');
+        }
+    </script>
+</body>
+</html>

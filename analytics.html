@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Electronic Voting System</title>
+    <style>
+        /* Additional CSS for improved design */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(255, 255, 255);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            border-bottom: 1px solid #ccc;
+        }
+
+        header img {
+            height: 150px;
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #555;
+        }
+
+        nav a:hover {
+            color: #000;
+        }
+
+        nav a.active {
+            color: #ff6600;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, #1472e6, #a8d8ff);
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .candidate-container {
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #a2c9e5, #6d78bf);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .candidate-container:hover {
+            transform: scale(1.02);
+        }
+
+        .candidate-details {
+            margin-bottom: 20px;
+        }
+
+        .candidate-details p {
+            margin: 5px 0;
+        }
+
+        .votes-count {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: gold;
+        }
+
+        .news-section {
+            margin-top: 40px;
+        }
+
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .news-item {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            background: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .news-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #logo {
+            height: 150px;
+        }
+
+        /* Social Media Icons */
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .candidate-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/Users/chukwuemelieclarenceume/Downloads/E-VOTE MAIN LOGO.png" alt="Company Logo" id="logo">
+        <nav>
+            <a href="Homepage.html">Home</a>
+            <a href="profile.html">Profile</a>
+            <a href="registration.html">Voter Registration</a>
+            <a href="vote.html">Vote</a>
+            <a href="analytics.html" class="active">Analytics</a>
+        </nav>
+    </header>
+    <section class="hero-section">
+        <h1>Analytics</h1>
+    </section>
+    <section>
+        <h2>Current Voting Analytics</h2>
+
+        <!-- Candidate 1 -->
+        <div class="candidate-container">
+            <div class="candidate-details">
+                <p>Candidate: John Smith</p>
+                <p>Position: President</p>
+                <div class="votes-count">Votes: 1200</div>
+            </div>
+        </div>
+
+        <!-- Candidate 2 -->
+        <div class="candidate-container">
+            <div class="candidate-details">
+                <p>Candidate: Jane Williams</p>
+                <p>Position: President</p>
+                <div class="votes-count">Votes: 1150</div>
+            </div>
+        </div>
+
+        <!-- Candidate 3 -->
+        <div class="candidate-container">
+            <div class="candidate-details">
+                <p>Candidate: Mark Johnson</p>
+                <p>Position: President</p>
+                <div class="votes-count">Votes: 980</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <h2>Live News Updates</h2>
+        <div class="news-container">
+            <div class="news-item">
+                <img src="/Users/chukwuemelieclarenceume/Downloads/elections.jpg" alt="News Image">
+                <h3>Breaking News 1</h3>
+                <p>Details about the breaking news 1.</p>
+            </div>
+            <div class="news-item">
+                <img src="/Users/chukwuemelieclarenceume/Downloads/1 E-voting with MAP.png" alt="News Image">
+                <h3>Breaking News 2</h3>
+                <p>Details about the breaking news 2.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 E-Vote. All rights reserved.</p>
+        <div>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>
